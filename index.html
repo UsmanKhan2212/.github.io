@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usman Zafar - SQA Engineer</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --primary: #8b5cf6;
+    --primary-light: #a78bfa;
+    --primary-dark: #6d28d9;
+    --bg: #0f0f13;
+    --bg2: #16161e;
+    --bg3: #1e1e2a;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border: rgba(139,92,246,0.2);
+    --accent: #c4b5fd;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(15,15,19,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 3rem;
+  }
+  .logo { font-size: 1.4rem; font-weight: 700; color: var(--primary-light); letter-spacing: 1px; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; letter-spacing: 0.5px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--primary-light); }
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 6rem 3rem 3rem;
+    background: radial-gradient(ellipse at 20% 50%, rgba(109,40,217,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.08) 0%, transparent 50%);
+  }
+  .hero-content { max-width: 700px; }
+  .hero-badge {
+    display: inline-block; background: rgba(139,92,246,0.15); border: 1px solid var(--border);
+    color: var(--accent); padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.85rem;
+    margin-bottom: 1.5rem; letter-spacing: 1px;
+  }
+  .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 0.5rem; }
+  .hero h1 span { color: var(--primary-light); }
+  .hero-role { font-size: 1.4rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .hero-desc { font-size: 1rem; color: var(--text-muted); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.8; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--primary); color: #fff; padding: 0.8rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--primary-dark); }
+  .btn-outline { border: 1px solid var(--border); color: var(--accent); padding: 0.8rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; transition: all 0.2s; }
+  .btn-outline:hover { background: rgba(139,92,246,0.1); }
+  section { padding: 5rem 3rem; }
+  .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 1rem; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+  .section-label { color: var(--primary-light); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; align-items: start; }
+  .about-text p { color: var(--text-muted); margin-bottom: 1rem; line-height: 1.9; }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; text-align: center; }
+  .stat-num { font-size: 2rem; font-weight: 800; color: var(--primary-light); }
+  .stat-label { color: var(--text-muted); font-size: 0.85rem; }
+  .skills-section { background: var(--bg2); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 3rem; }
+  .skill-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; transition: border-color 0.2s, transform 0.2s; }
+  .skill-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+  .skill-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+  .skill-name { font-weight: 600; margin-bottom: 0.5rem; }
+  .skill-desc { color: var(--text-muted); font-size: 0.85rem; }
+  .skill-bar-wrap { background: rgba(139,92,246,0.1); border-radius: 1rem; height: 4px; margin-top: 1rem; }
+  .skill-bar { height: 4px; border-radius: 1rem; background: linear-gradient(to right, var(--primary), var(--primary-light)); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem; transition: all 0.25s; display: flex; flex-direction: column; gap: 0.75rem; }
+  .project-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(109,40,217,0.15); }
+  .project-num { color: var(--primary-light); font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; }
+  .project-name { font-size: 1.1rem; font-weight: 700; }
+  .project-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
+  .tag { background: rgba(139,92,246,0.12); color: var(--accent); padding: 0.25rem 0.75rem; border-radius: 2rem; font-size: 0.75rem; }
+  .contact-section { background: var(--bg2); }
+  .contact-inner { max-width: 600px; margin: 3rem auto 0; text-align: center; }
+  .contact-inner p { color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.9; }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-link { display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted); text-decoration: none; font-size: 0.95rem; padding: 0.75rem 1.5rem; border: 1px solid var(--border); border-radius: 0.5rem; transition: all 0.2s; }
+  .contact-link:hover { color: var(--primary-light); border-color: var(--primary); background: rgba(139,92,246,0.08); }
+  footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1rem; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 5rem 1.5rem 3rem; }
+    .about-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">UZ</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">✦ Available for Opportunities</div>
+    <h1>Hi, I'm <span>Usman Zafar</span></h1>
+    <p class="hero-role">SQA Engineer</p>
+    <p class="hero-desc">Passionate about delivering high-quality software through rigorous manual testing, detailed bug tracking, and comprehensive QA processes. Ensuring flawless user experiences — one test case at a time.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <p class="section-label">Who I Am</p>
+  <h2 class="section-title">About Me</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm an SQA Engineer with a strong focus on manual testing and quality assurance. I've worked across a diverse range of projects — from fleet management systems and POS solutions to fintech and edtech platforms.</p>
+      <p>My goal is to bridge the gap between development and perfect user experience, catching issues before they reach your customers. I believe quality is not an act, it's a habit.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-num">12+</div><div class="stat-label">Projects Tested</div></div>
+      <div class="stat-card"><div class="stat-num">100%</div><div class="stat-label">Dedication</div></div>
+      <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Bugs Missed</div></div>
+      <div class="stat-card"><div class="stat-num">SQA</div><div class="stat-label">Specialist</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills-section">
+  <p class="section-label">What I Do</p>
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><div class="skill-icon">🧪</div><div class="skill-name">Manual Testing</div><div class="skill-desc">Functional, regression, smoke, and exploratory testing across web and mobile.</div><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">🐛</div><div class="skill-name">Bug Tracking</div><div class="skill-desc">Detailed defect reporting, lifecycle management, and root cause analysis.</div><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">📋</div><div class="skill-name">Test Case Design</div><div class="skill-desc">Writing comprehensive test plans, scenarios, and test cases from requirements.</div><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">🔗</div><div class="skill-name">API Testing</div><div class="skill-desc">REST API validation and endpoint testing using Postman.</div><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">📱</div><div class="skill-name">Mobile Testing</div><div class="skill-desc">Cross-device and cross-platform testing for iOS and Android apps.</div><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">⚙️</div><div class="skill-name">Agile & Jira</div><div class="skill-desc">Working in agile sprints, managing tasks and defects in Jira.</div><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <p class="section-label">My Work</p>
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card"><div class="project-num">01</div><div class="project-name">VehicleVista</div><div class="project-desc">Automotive platform testing — end-to-end QA for vehicle listing, search, and booking flows.</div><div class="project-tags"><span class="tag">Manual Testing</span><span class="tag">Web</span></div></div>
+    <div class="project-card"><div class="project-num">02</div><div class="project-name">Bio Fusion</div><div class="project-desc">Biotech platform QA including complex data entry forms, reports, and user role testing.</div><div class="project-tags"><span class="tag">Functional</span><span class="tag">Regression</span></div></div>
+    <div class="project-card"><div class="project-num">03</div><div class="project-name">PRYZM</div><div class="project-desc">Full quality assurance cycle for this SaaS platform — test planning to sign-off.</div><div class="project-tags"><span class="tag">SaaS</span><span class="tag">Test Plans</span></div></div>
+    <div class="project-card"><div class="project-num">04</div><div class="project-name">FDE</div><div class="project-desc">Feature-driven testing with detailed defect lifecycle management and sprint collaboration.</div><div class="project-tags"><span class="tag">Agile</span><span class="tag">Bug Tracking</span></div></div>
+    <div class="project-card"><div class="project-num">05</div><div class="project-name">Fleet Management System</div><div class="project-desc">Complex fleet operations platform — tested tracking, scheduling, reporting modules.</div><div class="project-tags"><span class="tag">Manual</span><span class="tag">Mobile</span></div></div>
+    <div class="project-card"><div class="project-num">06</div><div class="project-name">Worx</div><div class="project-desc">Workplace management tool QA — task flows, notifications, and integration testing.</div><div class="project-tags"><span class="tag">Integration</span><span class="tag">API</span></div></div>
+    <div class="project-card"><div class="project-num">07</div><div class="project-name">POS System</div><div class="project-desc">Point-of-sale software testing covering transactions, inventory, and reporting accuracy.</div><div class="project-tags"><span class="tag">Functional</span><span class="tag">Smoke</span></div></div>
+    <div class="project-card"><div class="project-num">08</div><div class="project-name">Book Worms</div><div class="project-desc">E-learning/reading platform — tested content delivery, user progress, and search features.</div><div class="project-tags"><span class="tag">EdTech</span><span class="tag">UX Testing</span></div></div>
+    <div class="project-card"><div class="project-num">09</div><div class="project-name">Orbix 360</div><div class="project-desc">360-degree business platform QA including dashboard, analytics, and multi-role testing.</div><div class="project-tags"><span class="tag">Analytics</span><span class="tag">Roles</span></div></div>
+    <div class="project-card"><div class="project-num">10</div><div class="project-name">Second Wings</div><div class="project-desc">Platform QA covering onboarding flows, user management, and end-to-end scenarios.</div><div class="project-tags"><span class="tag">E2E Testing</span><span class="tag">Web</span></div></div>
+    <div class="project-card"><div class="project-num">11</div><div class="project-name">VC Invest</div><div class="project-desc">Fintech investment platform — high-precision testing of financial flows and calculations.</div><div class="project-tags"><span class="tag">FinTech</span><span class="tag">Critical Path</span></div></div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <p class="section-label">Let's Talk</p>
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-inner">
+    <p>Have a project that needs quality assurance? I'm always open to discussing new opportunities and how we can work together to build something great.</p>
+    <div class="contact-links">
+      <a href="mailto:usmanzafar22199@gmail.com" class="contact-link"><span>📧</span> usmanzafar22199@gmail.com</a>
+      <a href="tel:+923054836397" class="contact-link"><span>📞</span> +92 305 4836397</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Designed & built by Usman Zafar &nbsp;·&nbsp; SQA Engineer &nbsp;·&nbsp; 2024</p>
+</footer>
+
+</body>
+</html>
