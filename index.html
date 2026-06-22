@@ -1,352 +1,243 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Usman Zafar - SQA Engineer</title>
+export default function App() {
+  return (
+    <div style={styles.body}>
 
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+      {/* NAV */}
+      <nav style={styles.nav}>
+        <div style={styles.logo}>UZ</div>
+        <div style={styles.links}>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
 
-  :root {
-    --primary: #8b5cf6;
-    --primary-light: #a78bfa;
-    --primary-dark: #6d28d9;
-    --bg: #0f0f13;
-    --bg2: #16161e;
-    --bg3: #1e1e2a;
-    --text: #e2e8f0;
-    --text-muted: #94a3b8;
-    --border: rgba(139,92,246,0.2);
-    --accent: #c4b5fd;
-  }
+      {/* HERO */}
+      <section id="home" style={styles.hero}>
+        <h1>Hi, I'm <span style={{ color: "#a78bfa" }}>Usman Zafar</span></h1>
+        <p style={styles.muted}>SQA Engineer</p>
+        <p style={styles.desc}>
+          QA Engineer focused on manual testing, test cases, bug reporting, API testing and Agile workflows.
+        </p>
 
-  html { scroll-behavior: smooth; }
+        <div style={{ marginTop: 20 }}>
+          <a href="#projects" style={styles.btn}>View Work</a>
+          <a
+            href="https://www.linkedin.com/in/uz2212/"
+            target="_blank"
+            style={styles.btnOutline}
+          >
+            LinkedIn
+          </a>
+        </div>
+      </section>
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
-  }
+      {/* ABOUT */}
+      <section id="about" style={styles.section}>
+        <h2>About Me</h2>
+        <div style={styles.card}>
+          I'm an SQA Engineer with experience in manual testing, regression testing,
+          API testing, test case design, and bug reporting using Jira.
+        </div>
+      </section>
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    background: rgba(15,15,19,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 3rem;
-  }
+      {/* SKILLS */}
+      <section id="skills" style={styles.section}>
+        <h2>Skills</h2>
 
-  .logo {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--primary-light);
-  }
+        <div style={styles.grid}>
+          <div style={styles.card}>
+            <h3>Manual Testing</h3>
+            <p>Functional, regression, smoke testing</p>
+          </div>
 
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
+          <div style={styles.card}>
+            <h3>Bug Reporting</h3>
+            <p>Jira, detailed defect lifecycle</p>
+          </div>
 
-  .nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.9rem;
-  }
+          <div style={styles.card}>
+            <h3>API Testing</h3>
+            <p>Postman REST APIs</p>
+          </div>
 
-  .nav-links a:hover {
-    color: var(--primary-light);
-  }
+          <div style={styles.card}>
+            <h3>Test Case Design</h3>
+            <p>Test plans, scenarios, documentation</p>
+          </div>
+        </div>
+      </section>
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 6rem 3rem 3rem;
-  }
+      {/* EXPERIENCE */}
+      <section id="experience" style={styles.section}>
+        <h2>Experience</h2>
 
-  .hero-content { max-width: 700px; }
+        <div style={styles.grid}>
 
-  .hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-  }
+          <div style={styles.card}>
+            <h3>Beyond Technologies</h3>
+            <p><b>SQA Engineer</b> (Sep 2025 - Present)</p>
+            <p>Test cases, bug reports, regression testing, Agile Jira workflows</p>
+          </div>
 
-  .hero h1 span { color: var(--primary-light); }
+          <div style={styles.card}>
+            <h3>Second Wings (Portugal Remote)</h3>
+            <p><b>SQA</b> (May 2025 - Aug 2025)</p>
+            <p>API testing, test flows, regression cycles, QA documentation</p>
+          </div>
 
-  .hero-role {
-    font-size: 1.3rem;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-  }
+          <div style={styles.card}>
+            <h3>MGlowUS</h3>
+            <p><b>SQA</b> (Nov 2024 - Mar 2025)</p>
+            <p>Manual testing, test cases, bug reporting, test execution</p>
+          </div>
 
-  .hero-desc {
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-  }
+        </div>
+      </section>
 
-  .btn-primary, .btn-outline {
-    padding: 0.8rem 2rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    font-weight: 600;
-    margin-right: 1rem;
-    display: inline-block;
-  }
+      {/* EDUCATION */}
+      <section id="education" style={styles.section}>
+        <h2>Education</h2>
 
-  .btn-primary {
-    background: var(--primary);
-    color: white;
-  }
+        <div style={styles.card}>
+          <h3>BS Computer Science</h3>
+          <p>University of Central Punjab (UCP)</p>
+          <p>2021 - 2025</p>
+        </div>
+      </section>
 
-  .btn-primary:hover { background: var(--primary-dark); }
+      {/* PROJECTS */}
+      <section id="projects" style={styles.section}>
+        <h2>Projects</h2>
 
-  .btn-outline {
-    border: 1px solid var(--border);
-    color: var(--accent);
-  }
+        <div style={styles.grid}>
+          <div style={styles.card}>
+            <h3>VehicleVista</h3>
+            <p>End-to-end QA testing platform</p>
+          </div>
 
-  /* SECTIONS */
-  section {
-    padding: 5rem 3rem;
-  }
+          <div style={styles.card}>
+            <h3>POS System</h3>
+            <p>Retail software testing</p>
+          </div>
 
-  .section-label {
-    color: var(--primary-light);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
+          <div style={styles.card}>
+            <h3>Fleet Management</h3>
+            <p>Tracking & operations QA</p>
+          </div>
+        </div>
+      </section>
 
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
+      {/* CONTACT */}
+      <section id="contact" style={styles.section}>
+        <h2>Contact</h2>
 
-  /* GRID CARDS */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
+        <div style={styles.card}>
+          <p>📧 usmanzafar22199@gmail.com</p>
+          <p>📞 +92 305 4836397</p>
+          <p>
+            🔗{" "}
+            <a
+              href="https://www.linkedin.com/in/uz2212/"
+              target="_blank"
+              style={{ color: "#a78bfa" }}
+            >
+              LinkedIn Profile
+            </a>
+          </p>
+        </div>
+      </section>
 
-  .card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    padding: 1.5rem;
-    border-radius: 1rem;
-  }
-
-  .card:hover {
-    border-color: var(--primary);
-    transform: translateY(-3px);
-    transition: 0.3s;
-  }
-
-  .title {
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .desc {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-
-  .tags {
-    margin-top: 1rem;
-  }
-
-  .tag {
-    display: inline-block;
-    background: rgba(139,92,246,0.15);
-    padding: 0.3rem 0.7rem;
-    border-radius: 1rem;
-    font-size: 0.7rem;
-    margin-right: 0.3rem;
-    color: var(--accent);
-  }
-
-  /* CONTACT */
-  .contact a {
-    display: block;
-    color: var(--text-muted);
-    text-decoration: none;
-    margin-bottom: 0.8rem;
-  }
-
-  footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--text-muted);
-  }
-
-  @media (max-width: 768px) {
-    nav { padding: 1rem; }
-    section { padding: 4rem 1.5rem; }
-  }
-</style>
-
-</head>
-
-<body>
-
-<!-- NAV -->
-<nav>
-  <div class="logo">UZ</div>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <h1>Hi, I'm <span>Usman Zafar</span></h1>
-    <p class="hero-role">SQA Engineer</p>
-    <p class="hero-desc">
-      Passionate QA Engineer focused on delivering high-quality software through manual testing,
-      test case design, bug reporting, and Agile collaboration.
-    </p>
-
-    <a href="#projects" class="btn-primary">View Work</a>
-    <a href="https://www.linkedin.com/in/uz2212/" target="_blank" class="btn-outline">LinkedIn</a>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <p class="section-label">Who I Am</p>
-  <h2 class="section-title">About</h2>
-
-  <div class="card">
-    I'm an SQA Engineer with experience in manual testing, regression testing,
-    API testing, and test case design. I have worked on multiple real-world projects
-    ensuring quality and smooth user experience.
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <p class="section-label">What I Do</p>
-  <h2 class="section-title">Skills</h2>
-
-  <div class="grid">
-    <div class="card">
-      <div class="title">Manual Testing</div>
-      <div class="desc">Functional, regression, smoke testing</div>
-      <div class="tags"><span class="tag">QA</span></div>
     </div>
+  );
+}
 
-    <div class="card">
-      <div class="title">Bug Reporting</div>
-      <div class="desc">Detailed defect lifecycle management</div>
-      <div class="tags"><span class="tag">Jira</span></div>
-    </div>
+/* STYLES */
+const styles = {
+  body: {
+    background: "#0f0f13",
+    color: "#e2e8f0",
+    fontFamily: "Segoe UI",
+    lineHeight: 1.6,
+  },
 
-    <div class="card">
-      <div class="title">API Testing</div>
-      <div class="desc">Postman REST API validation</div>
-      <div class="tags"><span class="tag">API</span></div>
-    </div>
-  </div>
-</section>
+  nav: {
+    position: "fixed",
+    top: 0,
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "15px 25px",
+    background: "#0f0f13",
+    borderBottom: "1px solid #1e1e2a",
+    zIndex: 1000,
+  },
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <p class="section-label">Career</p>
-  <h2 class="section-title">Experience</h2>
+  logo: {
+    color: "#a78bfa",
+    fontWeight: "bold",
+    fontSize: "18px",
+  },
 
-  <div class="grid">
+  links: {
+    display: "flex",
+    gap: "12px",
+    fontSize: "13px",
+  },
 
-    <div class="card">
-      <div class="title">Beyond Technologies</div>
-      <div class="desc">SQA Engineer (Sep 2025 - Present)<br>
-      Test cases, bug reports, regression testing, Agile Jira workflows</div>
-      <div class="tags"><span class="tag">SQA</span></div>
-    </div>
+  hero: {
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    padding: "100px 25px",
+  },
 
-    <div class="card">
-      <div class="title">Second Wings (Portugal Remote)</div>
-      <div class="desc">May 2025 - Aug 2025<br>
-      API testing, test flows, regression cycles</div>
-      <div class="tags"><span class="tag">Remote</span></div>
-    </div>
+  muted: {
+    color: "#94a3b8",
+    fontSize: "18px",
+  },
 
-    <div class="card">
-      <div class="title">MGlowUS</div>
-      <div class="desc">Nov 2024 - Mar 2025<br>
-      Manual QA, test cases, bug reporting</div>
-      <div class="tags"><span class="tag">QA</span></div>
-    </div>
+  desc: {
+    maxWidth: "600px",
+    color: "#94a3b8",
+  },
 
-  </div>
-</section>
+  section: {
+    padding: "80px 25px",
+  },
 
-<!-- EDUCATION -->
-<section id="education">
-  <p class="section-label">Study</p>
-  <h2 class="section-title">Education</h2>
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gap: "15px",
+  },
 
-  <div class="card">
-    <div class="title">BS Computer Science</div>
-    <div class="desc">University of Central Punjab (UCP) 2021 - 2025</div>
-  </div>
-</section>
+  card: {
+    background: "#16161e",
+    padding: "18px",
+    borderRadius: "10px",
+    marginTop: "15px",
+  },
 
-<!-- PROJECTS -->
-<section id="projects">
-  <p class="section-label">Work</p>
-  <h2 class="section-title">Projects</h2>
+  btn: {
+    background: "#8b5cf6",
+    padding: "10px 18px",
+    borderRadius: "6px",
+    color: "white",
+    marginRight: "10px",
+    textDecoration: "none",
+  },
 
-  <div class="grid">
-    <div class="card">
-      <div class="title">VehicleVista</div>
-      <div class="desc">QA for vehicle listing platform</div>
-    </div>
-
-    <div class="card">
-      <div class="title">POS System</div>
-      <div class="desc">Retail system testing</div>
-    </div>
-
-    <div class="card">
-      <div class="title">Fleet Management</div>
-      <div class="desc">End-to-end system testing</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <p class="section-label">Get in Touch</p>
-  <h2 class="section-title">Contact</h2>
-
-  <div class="contact">
-    <a href="mailto:usmanzafar22199@gmail.com">📧 Email</a>
-    <a href="tel:+923054836397">📞 Phone</a>
-    <a href="https://www.linkedin.com/in/uz2212/" target="_blank">🔗 LinkedIn</a>
-  </div>
-</section>
-
-<footer>
-  © 2026 Usman Zafar - SQA Engineer
-</footer>
-
-</body>
-</html>
+  btnOutline: {
+    border: "1px solid #8b5cf6",
+    padding: "10px 18px",
+    borderRadius: "6px",
+    color: "#a78bfa",
+    textDecoration: "none",
+  },
+};
