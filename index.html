@@ -129,6 +129,31 @@
   .expertise-list li::before { background: #c084fc; }
   .about-resume-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: linear-gradient(135deg, #7c3aed, #6d28d9); color: #fff; padding: 0.9rem 2rem; border-radius: 0.6rem; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; box-shadow: 0 4px 20px rgba(109,40,217,0.3); margin-top: 1.5rem; }
   .about-resume-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(109,40,217,0.45); }
+  /* extra hover effects added across the site */
+  .logo { transition: transform 0.2s, filter 0.2s; }
+  .logo:hover { transform: scale(1.05); filter: brightness(1.2); }
+  .hero-photo { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .hero-photo-wrap:hover .hero-photo { transform: scale(1.04); box-shadow: 0 0 0 8px rgba(139,92,246,0.16), 0 24px 70px rgba(109,40,217,0.45); }
+  .about-card { transition: border-color 0.2s, transform 0.2s; }
+  .about-card:hover { border-color: rgba(139,92,246,0.4); transform: translateY(-3px); }
+  .about-bio-card { transition: border-color 0.2s; }
+  .about-bio-card:hover { border-color: rgba(139,92,246,0.4); }
+  .about-list li { transition: color 0.2s, transform 0.2s; }
+  .about-list li:hover { color: var(--accent); transform: translateX(3px); }
+  .exp-tag, .tag, .edu-pill { transition: transform 0.2s, background 0.2s; cursor: default; }
+  .exp-tag:hover, .tag:hover { transform: translateY(-2px); background: rgba(139,92,246,0.22); }
+  .edu-pill:hover { transform: translateY(-2px); border-color: rgba(139,92,246,0.35); }
+  .skill-icon, .skill-card .skill-icon { transition: transform 0.25s ease; display: inline-block; }
+  .skill-card:hover .skill-icon { transform: scale(1.15) rotate(-4deg); }
+  .project-num { transition: opacity 0.2s; }
+  .project-card:hover .project-num { opacity: 1; }
+  .stat-item { transition: transform 0.2s; }
+  .stat-item:hover { transform: translateY(-3px); }
+  .stat-item:hover .stat-num { color: var(--accent); }
+  .edu-icon { transition: transform 0.25s ease, background 0.25s ease; }
+  .edu-card:hover .edu-icon { transform: scale(1.1) rotate(-3deg); background: rgba(139,92,246,0.2); }
+  .about-card-icon { transition: transform 0.25s ease; }
+  .about-card:hover .about-card-icon { transform: scale(1.12); }
   @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
@@ -463,6 +488,12 @@ nav {
       padding: 28px 30px;
       border: 1px solid rgba(255,255,255,0.06);
       overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .exp-card2:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.16);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.35);
     }
 
     .exp-card2::before {
@@ -918,6 +949,12 @@ nav {
     font-size: 1.6rem;
     font-weight: 800;
     margin-bottom: 10px;
+    display: inline-block;
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
+  }
+  .footer-name:hover {
+    transform: scale(1.04);
+    text-shadow: 0 0 18px rgba(56,189,248,0.6);
   }
   .footer-role {
     color: #cbd5e1;
