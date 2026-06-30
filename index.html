@@ -545,6 +545,142 @@ nav {
     </ul>
   </div>
 </section>
+<!-- EDUCATION -->
+<section id="education" class="alt">
+  <style>
+    .edu-heading-wrap {
+      text-align: left;
+      margin-bottom: 36px;
+    }
+    .edu-heading {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #e2e8f0;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .edu-card2 {
+      max-width: 900px;
+      margin: 0;
+      position: relative;
+      background: #131a29;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 30px 34px;
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .edu-card2:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56,189,248,0.35);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.4);
+    }
+    .edu-card2::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    }
+
+    .edu-card2-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .edu-icon2 {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+    .edu-card2:hover .edu-icon2 {
+      transform: scale(1.1) rotate(-4deg);
+    }
+    .edu-icon2 i { font-size: 1.6rem; color: #fff; }
+
+    .edu-degree2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .edu-uni2 {
+      color: #38bdf8;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .edu-date2 {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    }
+
+    .edu-points2 {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .edu-points2 li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .edu-points2 li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #38bdf8;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+  </style>
+
+  <div class="edu-heading-wrap">
+    <h2 class="edu-heading"><i class="ti ti-school"></i> Academic Background</h2>
+  </div>
+
+  <div class="edu-card2">
+    <div class="edu-card2-top">
+      <div class="edu-icon2"><i class="ti ti-school"></i></div>
+      <div>
+        <div class="edu-degree2">Bachelor of Science in Computer Science (BSCS)</div>
+        <a href="#" class="edu-uni2">University of Central Punjab, Lahore</a><br>
+        <span class="edu-date2">2021 — 2025</span>
+      </div>
+    </div>
+    <ul class="edu-points2">
+      <li>Studied core CS subjects including Data Structures, Algorithms, Database Management Systems, Operating Systems, and Software Engineering</li>
+      <li>Built a strong foundation in SDLC, STLC, and Agile/Scrum methodologies applied throughout QA practice</li>
+      <li>Gained hands-on experience in writing SQL queries, API testing, and validating software quality across the development lifecycle</li>
+    </ul>
+  </div>
+</section>
 
 <!-- SKILLS -->
 <section id="skills">
