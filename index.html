@@ -446,93 +446,223 @@ nav {
 <section id="experience" class="alt">
   <p class="section-label">Where I've Worked</p>
   <h2 class="section-title"><i class="ti ti-briefcase"></i> Experience</h2>
-  <div class="exp-list">
-    <div class="exp-item">
-      <div class="exp-dot-wrap"><div class="exp-dot current"></div></div>
-      <div class="exp-card">
-        <div class="exp-top">
-          <div>
-            <div class="exp-role">QA Engineer</div>
-            <div class="exp-company">Beyond Technologies — Lahore, Pakistan</div>
-          </div>
-          <span class="exp-date">Sep 2025 — Present</span>
-        </div>
-        <div class="exp-tags">
-          <span class="exp-tag green">🟢 Current</span>
-          <span class="exp-tag">Manual Testing</span>
-          <span class="exp-tag">Postman</span>
-          <span class="exp-tag">Jira</span>
-          <span class="exp-tag">JMeter</span>
-        </div>
-        <ul class="exp-points">
-          <li>Designed and executed 70+ test cases ensuring regression stability and production-ready releases.</li>
-          <li>Performed REST API testing using Postman to validate backend responses and data integrity.</li>
-          <li>Conducted performance testing using JMeter to identify bottlenecks before release.</li>
-        </ul>
+
+  <style>
+    .exp-list2 {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .exp-card2 {
+      position: relative;
+      background: #0d1320;
+      border-radius: 16px;
+      padding: 28px 30px;
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+
+    .exp-card2::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      border-radius: 16px 16px 0 0;
+    }
+
+    /* alag alag color top bar / link color har card ke liye */
+    .exp-card2.c1::before { background: linear-gradient(90deg, #3b82f6, #06b6d4); }
+    .exp-card2.c2::before { background: linear-gradient(90deg, #a855f7, #ec4899); }
+    .exp-card2.c3::before { background: linear-gradient(90deg, #22c55e, #84cc16); }
+    .exp-card2.c4::before { background: linear-gradient(90deg, #f97316, #eab308); }
+
+    .exp-role2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .exp-company2 {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      margin-bottom: 14px;
+    }
+    .exp-company2 i { font-size: 0.8rem; }
+
+    .c1 .exp-company2 { color: #3b82f6; }
+    .c2 .exp-company2 { color: #a855f7; }
+    .c3 .exp-company2 { color: #22c55e; }
+    .c4 .exp-company2 { color: #f97316; }
+
+    .exp-badges2 {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .exp-date2 {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .c1 .exp-date2 { background: linear-gradient(90deg, #3b82f6, #06b6d4); }
+    .c2 .exp-date2 { background: linear-gradient(90deg, #a855f7, #ec4899); }
+    .c3 .exp-date2 { background: linear-gradient(90deg, #22c55e, #84cc16); }
+    .c4 .exp-date2 { background: linear-gradient(90deg, #f97316, #eab308); }
+
+    .exp-loc2 {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.08);
+      color: #cbd5e1;
+    }
+
+    .exp-desc2 {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .exp-highlights-title2 {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .c1 .exp-highlights-title2 { color: #3b82f6; }
+    .c2 .exp-highlights-title2 { color: #a855f7; }
+    .c3 .exp-highlights-title2 { color: #22c55e; }
+    .c4 .exp-highlights-title2 { color: #f97316; }
+
+    .exp-points2 {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .exp-points2 li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #e2e8f0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .exp-points2 li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+    .c1 .exp-points2 li::before { background: #3b82f6; }
+    .c2 .exp-points2 li::before { background: #a855f7; }
+    .c3 .exp-points2 li::before { background: #22c55e; }
+    .c4 .exp-points2 li::before { background: #f97316; }
+  </style>
+
+  <div class="exp-list2">
+
+    <!-- Card 1 -->
+    <div class="exp-card2 c1">
+      <div class="exp-role2">QA Engineer</div>
+      <a href="#" class="exp-company2" target="_blank">Beyond Technologies <i class="ti ti-external-link"></i></a>
+      <div class="exp-badges2">
+        <span class="exp-date2">Sep 2025 — Present</span>
+        <span class="exp-loc2">Lahore, Pakistan</span>
       </div>
+      <p class="exp-desc2">
+        Designed and executed 70+ test cases ensuring regression stability and production-ready releases.
+        Performed REST API testing using Postman to validate backend responses and data integrity.
+        Conducted performance testing using JMeter to identify bottlenecks before release.
+      </p>
+      <div class="exp-highlights-title2">Key Highlights</div>
+      <ul class="exp-points2">
+        <li>Designed and executed 70+ test cases ensuring regression stability</li>
+        <li>Performed REST API testing using Postman</li>
+        <li>Conducted performance testing using JMeter</li>
+        <li>Used Jira for defect tracking and release management</li>
+      </ul>
     </div>
-    <div class="exp-item">
-      <div class="exp-dot-wrap"><div class="exp-dot"></div></div>
-      <div class="exp-card">
-        <div class="exp-top">
-          <div>
-            <div class="exp-role">Junior QA Engineer</div>
-            <div class="exp-company">Second Wings — Lisbon, Portugal (Remote)</div>
-          </div>
-          <span class="exp-date">May 2025 — Aug 2025</span>
-        </div>
-        <div class="exp-tags">
-          <span class="exp-tag">Remote</span>
-          <span class="exp-tag">Regression Testing</span>
-          <span class="exp-tag">ClickUp</span>
-          <span class="exp-tag">SQL</span>
-        </div>
-        <ul class="exp-points">
-          <li>Executed smoke, sanity, and regression testing across multiple CI/CD releases.</li>
-          <li>Logged and tracked 30+ defects in ClickUp ensuring timely resolution.</li>
-          <li>Wrote SQL queries to validate data integrity and backend database consistency.</li>
-        </ul>
+
+    <!-- Card 2 -->
+    <div class="exp-card2 c2">
+      <div class="exp-role2">Junior QA Engineer</div>
+      <a href="#" class="exp-company2" target="_blank">Second Wings <i class="ti ti-external-link"></i></a>
+      <div class="exp-badges2">
+        <span class="exp-date2">May 2025 — Aug 2025</span>
+        <span class="exp-loc2">Lisbon, Portugal (Remote)</span>
       </div>
+      <p class="exp-desc2">
+        Executed smoke, sanity, and regression testing across multiple CI/CD releases.
+        Logged and tracked 30+ defects in ClickUp ensuring timely resolution.
+        Wrote SQL queries to validate data integrity and backend database consistency.
+      </p>
+      <div class="exp-highlights-title2">Key Highlights</div>
+      <ul class="exp-points2">
+        <li>Executed smoke, sanity, and regression testing across CI/CD releases</li>
+        <li>Logged and tracked 30+ defects in ClickUp</li>
+        <li>Wrote SQL queries to validate data integrity</li>
+      </ul>
     </div>
-    <div class="exp-item">
-      <div class="exp-dot-wrap"><div class="exp-dot"></div></div>
-      <div class="exp-card">
-        <div class="exp-top">
-          <div>
-            <div class="exp-role">QA Intern</div>
-            <div class="exp-company">MGlowus — Lahore, Pakistan</div>
-          </div>
-          <span class="exp-date">Nov 2024 — Apr 2025</span>
-        </div>
-        <div class="exp-tags">
-          <span class="exp-tag">Functional Testing</span>
-          <span class="exp-tag">API Testing</span>
-          <span class="exp-tag">ClickUp</span>
-        </div>
-        <ul class="exp-points">
-          <li>Created 40+ test cases for functional modules ensuring system reliability.</li>
-          <li>Performed REST API testing using Postman and validated data flow between systems.</li>
-        </ul>
+
+    <!-- Card 3 -->
+    <div class="exp-card2 c3">
+      <div class="exp-role2">QA Intern</div>
+      <a href="#" class="exp-company2" target="_blank">MGlowus <i class="ti ti-external-link"></i></a>
+      <div class="exp-badges2">
+        <span class="exp-date2">Nov 2024 — Apr 2025</span>
+        <span class="exp-loc2">Lahore, Pakistan</span>
       </div>
+      <p class="exp-desc2">
+        Created 40+ test cases for functional modules ensuring system reliability.
+        Performed REST API testing using Postman and validated data flow between systems.
+      </p>
+      <div class="exp-highlights-title2">Key Highlights</div>
+      <ul class="exp-points2">
+        <li>Created 40+ test cases for functional modules</li>
+        <li>Performed REST API testing using Postman</li>
+        <li>Validated data flow between integrated systems</li>
+      </ul>
     </div>
-    <div class="exp-item">
-      <div class="exp-dot-wrap"><div class="exp-dot"></div></div>
-      <div class="exp-card">
-        <div class="exp-top">
-          <div>
-            <div class="exp-role">App Developer</div>
-            <div class="exp-company">Ensmile</div>
-          </div>
-          <span class="exp-date">Jul 2024 — Oct 2024</span>
-        </div>
-        <div class="exp-tags">
-          <span class="exp-tag">Mobile Development</span>
-          <span class="exp-tag">React Native</span>
-        </div>
+
+    <!-- Card 4 -->
+    <div class="exp-card2 c4">
+      <div class="exp-role2">App Developer</div>
+      <a href="#" class="exp-company2" target="_blank">Ensmile <i class="ti ti-external-link"></i></a>
+      <div class="exp-badges2">
+        <span class="exp-date2">Jul 2024 — Oct 2024</span>
       </div>
+      <p class="exp-desc2">
+        Developed cross-platform mobile applications using React Native, delivering smooth and consistent
+        experiences across iOS and Android platforms.
+      </p>
+      <div class="exp-highlights-title2">Key Highlights</div>
+      <ul class="exp-points2">
+        <li>Built cross-platform mobile apps using React Native</li>
+        <li>Delivered consistent UI/UX across iOS and Android</li>
+      </ul>
     </div>
+
   </div>
 </section>
+
 
 <!-- CONTACT -->
 <section id="contact">
