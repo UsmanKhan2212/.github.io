@@ -536,6 +536,87 @@ nav {
   </div>
 </section>
 
+<style>
+.exp-card {
+  position: relative;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 30px;
+  overflow: hidden;
+}
+.exp-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb, #06b6d4);
+}
+.exp-role {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.exp-company-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+.exp-company-link:hover { text-decoration: underline; }
+.exp-badges {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.badge-date {
+  background: linear-gradient(90deg, #2563eb, #06b6d4);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+.badge-location {
+  background: rgba(255,255,255,0.08);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+.exp-desc {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+.exp-highlights-title {
+  color: #38bdf8;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.exp-points li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.exp-points li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 8px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background:
 <!-- CONTACT -->
 <section id="contact">
   <p class="section-label">Let's Talk</p>
