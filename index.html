@@ -569,20 +569,225 @@ nav {
 
 <!-- PROJECTS -->
 <section id="projects" class="alt">
+  <style>
+    .projects-grid2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 700px) {
+      .projects-grid2 { grid-template-columns: 1fr; }
+    }
+
+    .project-card2 {
+      position: relative;
+      background: #111827;
+      border-radius: 16px;
+      padding: 28px 26px;
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .project-card2:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,0.15);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .project-card2::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      border-radius: 16px 16px 0 0;
+    }
+
+    .pc1::before  { background: linear-gradient(90deg, #3b82f6, #06b6d4); }
+    .pc2::before  { background: linear-gradient(90deg, #a855f7, #ec4899); }
+    .pc3::before  { background: linear-gradient(90deg, #f97316, #eab308); }
+    .pc4::before  { background: linear-gradient(90deg, #22c55e, #06b6d4); }
+    .pc5::before  { background: linear-gradient(90deg, #ec4899, #f97316); }
+    .pc6::before  { background: linear-gradient(90deg, #6366f1, #a855f7); }
+    .pc7::before  { background: linear-gradient(90deg, #14b8a6, #3b82f6); }
+    .pc8::before  { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+    .pc9::before  { background: linear-gradient(90deg, #8b5cf6, #06b6d4); }
+    .pc10::before { background: linear-gradient(90deg, #10b981, #3b82f6); }
+
+    .project-name2 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .project-desc2 {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .project-tags2 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .project-tag2 {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .pc1  .project-tag2:nth-child(1) { background: #3b82f6; }
+    .pc1  .project-tag2:nth-child(2) { background: #06b6d4; }
+    .pc1  .project-tag2:nth-child(3) { background: #6366f1; }
+
+    .pc2  .project-tag2:nth-child(1) { background: #a855f7; }
+    .pc2  .project-tag2:nth-child(2) { background: #ec4899; }
+    .pc2  .project-tag2:nth-child(3) { background: #8b5cf6; }
+
+    .pc3  .project-tag2:nth-child(1) { background: #f97316; }
+    .pc3  .project-tag2:nth-child(2) { background: #eab308; }
+    .pc3  .project-tag2:nth-child(3) { background: #f59e0b; }
+
+    .pc4  .project-tag2:nth-child(1) { background: #22c55e; }
+    .pc4  .project-tag2:nth-child(2) { background: #06b6d4; }
+    .pc4  .project-tag2:nth-child(3) { background: #14b8a6; }
+
+    .pc5  .project-tag2:nth-child(1) { background: #ec4899; }
+    .pc5  .project-tag2:nth-child(2) { background: #f97316; }
+    .pc5  .project-tag2:nth-child(3) { background: #ef4444; }
+
+    .pc6  .project-tag2:nth-child(1) { background: #6366f1; }
+    .pc6  .project-tag2:nth-child(2) { background: #a855f7; }
+    .pc6  .project-tag2:nth-child(3) { background: #8b5cf6; }
+
+    .pc7  .project-tag2:nth-child(1) { background: #14b8a6; }
+    .pc7  .project-tag2:nth-child(2) { background: #3b82f6; }
+    .pc7  .project-tag2:nth-child(3) { background: #06b6d4; }
+
+    .pc8  .project-tag2:nth-child(1) { background: #f59e0b; }
+    .pc8  .project-tag2:nth-child(2) { background: #ef4444; }
+    .pc8  .project-tag2:nth-child(3) { background: #f97316; }
+
+    .pc9  .project-tag2:nth-child(1) { background: #8b5cf6; }
+    .pc9  .project-tag2:nth-child(2) { background: #06b6d4; }
+    .pc9  .project-tag2:nth-child(3) { background: #a855f7; }
+
+    .pc10 .project-tag2:nth-child(1) { background: #10b981; }
+    .pc10 .project-tag2:nth-child(2) { background: #3b82f6; }
+    .pc10 .project-tag2:nth-child(3) { background: #06b6d4; }
+  </style>
+
   <p class="section-label">My Work</p>
   <h2 class="section-title"><i class="ti ti-folder"></i> Projects</h2>
-  <div class="projects-grid">
-    <div class="project-card"><div class="project-num">01</div><div class="project-name">VehicleVista</div><div class="project-desc">Automotive platform — end-to-end QA for vehicle listing, search, and booking flows.</div><div class="project-tags"><span class="tag">Manual Testing</span><span class="tag">Web</span></div></div>
-    <div class="project-card"><div class="project-num">02</div><div class="project-name">Bio Fusion</div><div class="project-desc">Biotech platform QA including data entry forms, reports, and user role testing.</div><div class="project-tags"><span class="tag">Functional</span><span class="tag">Regression</span></div></div>
-    <div class="project-card"><div class="project-num">03</div><div class="project-name">PRYZM</div><div class="project-desc">Full QA cycle for this SaaS platform — test planning to sign-off.</div><div class="project-tags"><span class="tag">SaaS</span><span class="tag">Test Plans</span></div></div>
-    <div class="project-card"><div class="project-num">04</div><div class="project-name">FDE</div><div class="project-desc">Feature-driven testing with detailed defect lifecycle management and sprint collaboration.</div><div class="project-tags"><span class="tag">Agile</span><span class="tag">Bug Tracking</span></div></div>
-    <div class="project-card"><div class="project-num">05</div><div class="project-name">Fleet Management System</div><div class="project-desc">Fleet operations platform — tested tracking, scheduling, and reporting modules.</div><div class="project-tags"><span class="tag">Manual</span><span class="tag">Mobile</span></div></div>
-    <div class="project-card"><div class="project-num">06</div><div class="project-name">Worx</div><div class="project-desc">Workplace management tool QA — task flows, notifications, and integration testing.</div><div class="project-tags"><span class="tag">Integration</span><span class="tag">API</span></div></div>
-    <div class="project-card"><div class="project-num">07</div><div class="project-name">POS System</div><div class="project-desc">Point-of-sale testing covering transactions, inventory, and reporting accuracy.</div><div class="project-tags"><span class="tag">Functional</span><span class="tag">Smoke</span></div></div>
-    <div class="project-card"><div class="project-num">08</div><div class="project-name">Book Worms</div><div class="project-desc">E-learning platform — tested content delivery, user progress, and search features.</div><div class="project-tags"><span class="tag">EdTech</span><span class="tag">UX Testing</span></div></div>
-    <div class="project-card"><div class="project-num">09</div><div class="project-name">Orbix 360</div><div class="project-desc">360-degree business platform — dashboard, analytics, and multi-role testing.</div><div class="project-tags"><span class="tag">Analytics</span><span class="tag">Roles</span></div></div>
-    <div class="project-card"><div class="project-num">10</div><div class="project-name">Second Wings</div><div class="project-desc">Platform QA covering onboarding flows, user management, and end-to-end scenarios.</div><div class="project-tags"><span class="tag">E2E Testing</span><span class="tag">Web</span></div></div>
-    <div class="project-card"><div class="project-num">11</div><div class="project-name">VC Invest</div><div class="project-desc">Fintech investment platform — high-precision testing of financial flows and REST APIs.</div><div class="project-tags"><span class="tag">FinTech</span><span class="tag">API Testing</span></div></div>
+
+  <div class="projects-grid2">
+
+    <div class="project-card2 pc1">
+      <div class="project-name2">VehicleVista</div>
+      <div class="project-desc2">Inspector booking app that traces nearest available inspectors with real-time location and rate comparison. Performed end-to-end QA on booking flows, inspector tracking, and rate validation modules.</div>
+      <div class="project-tags2">
+        <span class="project-tag2">Manual Testing</span>
+        <span class="project-tag2">API Testing</span>
+        <span class="project-tag2">Mobile</span>
+      </div>
+    </div>
+
+    <div class="project-card2 pc2">
+      <div class="project-name2">Bio Fusion</div>
+      <div class="project-desc2">US-based clinic portal for tracking medicines and inventory management. Tested data entry forms, medicine stock flows, user role access, and validated backend data integrity via SQL and API testing.</div>
+      <div class="project-tags2">
+        <span class="project-tag2">Functional Testing</span>
+        <span class="project-tag2">SQL</span>
+        <span class="project-tag2">Regression</span>
+      </div>
+    </div>
+
+    <div class="project-card2 pc3">
+      <div class="project-name2">PRYZM</div>
+      <div class="project-desc2">AI-powered outfit generation app that suggests personalized clothing combinations. Conducted full QA cycle including smoke, sanity, and regression testing across AI recommendation flows and user preference modules.</div>
+      <div class="project-tags2">
+        <span class="project-tag2">AI App Testing</span>
+        <span class="project-tag2">Smoke</span>
+        <span class="project-tag2">Sanity</span>
+      </div>
+    </div>
+
+    <div class="project-card2 pc4">
+      <div class="project-name2">FDE</div>
+      <div class="project-desc2">Learning Management System (LMS) web app for managing courses, assignments, and student progress. Performed feature-driven testing with detailed defect lifecycle management and Agile sprint collaboration.</div>
+      <div class="project-tags2">
+        <span class="project-tag2">LMS</span>
+        <span class="project-tag2">Agile</span>
+        <span class="project-tag2">Bug Tracking</span>
+      </div>
+    </div>
+
+    <div class="project-card2 pc5">
+      <div class="project-name2">Fleet Management System</div>
+      <div class="project-desc2">Comprehensive car fleet management system for tracking vehicles, scheduling maintenance, and monitoring driver assignments. Tested tracking modules, scheduling workflows, and reporting accuracy across the platform.</div>
+      <div class="project-tags2">
+        <span class="project-tag2">Manual Testing</span>
+        <span class="project-tag2">Functional</span>
+        <span class="project-tag2">Mobile</span>
+      </div>
+    </div>
+
+    <div class="project-card2 pc6">
+      <div class="project-name2">Worx</div>
+      <div class="project-desc2">On-demand service app connecting users with different home and professional services at their doorstep. Tested service discovery flows, booking integrations, real-time notifications, and end-to-end provider matching.</div>
+      <div class="project-tags2">
+        <span class="project-tag2">Integration Testing</span>
+        <span class="project-tag2">API</span>
+        <span class="project-tag2">E2E</span>
+      </div>
+    </div>
+
+    <div class="project-card2 pc7">
+      <div class="project-name2">Book Worms</div>
+      <div class="project-desc2">Book-focused Point of Sale (POS) system for managing book sales, inventory, and billing. Performed functional testing on transaction flows, stock management, receipt generation, and search accuracy.</div>
+      <div class="project-tags2">
+        <span class="project-tag2">POS Testing</span>
+        <span class="project-tag2">Functional</span>
+        <span class="project-tag2">Smoke</span>
+      </div>
+    </div>
+
+    <div class="project-card2 pc8">
+      <div class="project-name2">Orbix 360</div>
+      <div class="project-desc2">Full-featured Point of Sale platform with dashboard analytics and multi-role access. Tested transaction accuracy, inventory updates, user role permissions, and reporting modules across the entire system.</div>
+      <div class="project-tags2">
+        <span class="project-tag2">POS</span>
+        <span class="project-tag2">Analytics</span>
+        <span class="project-tag2">Role Testing</span>
+      </div>
+    </div>
+
+    <div class="project-card2 pc9">
+      <div class="project-name2">Second Wings</div>
+      <div class="project-desc2">Visa booking and consultancy platform streamlining the visa application process. Executed smoke, sanity, and regression testing across onboarding flows, document uploads, application tracking, and user management.</div>
+      <div class="project-tags2">
+        <span class="project-tag2">E2E Testing</span>
+        <span class="project-tag2">Regression</span>
+        <span class="project-tag2">Web</span>
+      </div>
+    </div>
+
+    <div class="project-card2 pc10">
+      <div class="project-name2">VC Invest</div>
+      <div class="project-desc2">Business consultancy and investment platform for connecting businesses with venture capital opportunities. Performed high-precision testing of financial workflows, consultant matching flows, and REST APIs using Postman and SQL.</div>
+      <div class="project-tags2">
+        <span class="project-tag2">FinTech</span>
+        <span class="project-tag2">API Testing</span>
+        <span class="project-tag2">SQL</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
